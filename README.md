@@ -44,6 +44,8 @@ Al momento de ejecutarlo con run, se imprime los numeros del primer thread compl
 es porque el run hace que el thread1 corra y no deja que abran otros threads hasta que este acabe primero, el start corre el primer hilo corre una parte, inicia el segundo thread, corre
 una parte y lo mismo con el tercero y vuelve a empezar con el primer thread, haciendo concurrencia.
 
+![image](img/Salida%20run.png)
+
 **Parte II - Ejercicio Black List Search**
 
 
