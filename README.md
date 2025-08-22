@@ -20,11 +20,29 @@
 **Parte I - Introducción a Hilos en Java**
 
 1. De acuerdo con lo revisado en las lecturas, complete las clases CountThread, para que las mismas definan el ciclo de vida de un hilo que imprima por pantalla los números entre A y B.
+
+![image](img/CountThread.png)
+
 2. Complete el método __main__ de la clase CountMainThreads para que:
 	1. Cree 3 hilos de tipo CountThread, asignándole al primero el intervalo [0..99], al segundo [99..199], y al tercero [200..299].
 	2. Inicie los tres hilos con 'start()'.
-	3. Ejecute y revise la salida por pantalla. 
-	4. Cambie el incio con 'start()' por 'run()'. Cómo cambia la salida?, por qué?.
+   
+   ![image](img/CountMainThreads.png)
+	
+   3. Ejecute y revise la salida por pantalla. 
+   
+    Ejecución usando start():
+
+    ![image](img/Salida%20threads%20start.png)
+
+    La informacion de los 3 threads aparecen en desorden, se mezclan los numeros de los 3 threads y al ejecutarlo varias veces el orden siempre cambia
+
+
+4. Cambie el incio con 'start()' por 'run()'. Cómo cambia la salida?, por qué?.
+
+Al momento de ejecutarlo con run, se imprime los numeros del primer thread completo, luego los del segundo thred y luego los del tercer thread sin que se mezclen de alguna forma,
+es porque el run hace que el thread1 corra y no deja que abran otros threads hasta que este acabe primero, el start corre el primer hilo corre una parte, inicia el segundo thread, corre
+una parte y lo mismo con el tercero y vuelve a empezar con el primer thread, haciendo concurrencia.
 
 **Parte II - Ejercicio Black List Search**
 
