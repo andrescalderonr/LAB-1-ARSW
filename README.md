@@ -3,6 +3,10 @@
 ### Arquitecturas de Software - ARSW
 ## Ejercicio Introducción al paralelismo - Hilos - Caso BlackListSearch
 
+### Integrantes
+
+* Jose David Castillo Rodriguez
+* Andres Felipe Calderon Ramirez
 
 ### Dependencias:
 ####   Lecturas:
