@@ -19,7 +19,7 @@ public class Main {
         int nucleos = r.availableProcessors();
 
         long start = System.currentTimeMillis();
-        List<Integer> blackListOcurrences=hblv.checkHost("200.24.34.55",500);
+        List<Integer> blackListOcurrences=hblv.checkHost("212.24.34.55",100);
         long end = System.currentTimeMillis();
         double duration = (end-start)/1000.0;
 

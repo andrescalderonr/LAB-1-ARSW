@@ -78,8 +78,10 @@ Para 'refactorizar' este código, y hacer que explote la capacidad multi-núcleo
 
 	* Dentro del método checkHost Se debe mantener el LOG que informa, antes de retornar el resultado, el número de listas negras revisadas VS. el número de listas negras total (línea 60). Se debe garantizar que dicha información sea verídica bajo el nuevo esquema de procesamiento en paralelo planteado.
 
-	* Se sabe que el HOST 202.24.34.55 está reportado en listas negras de una forma más dispersa, y que el host 212.24.24.55 NO está en ninguna lista negra.
+    * Se sabe que el HOST 202.24.34.55 está reportado en listas negras de una forma más dispersa, y que el host 212.24.24.55 NO está en ninguna lista negra.
 
+    * ![img](/img/punto%202,%20trustworthy.png)
+    * ![img](/img/punto%202,%20not%20trustworthy.png)
 
 **Parte II.I Para discutir la próxima clase (NO para implementar aún)**
 
@@ -100,6 +102,23 @@ A partir de lo anterior, implemente la siguiente secuencia de experimentos para 
 
 Al iniciar el programa ejecute el monitor jVisualVM, y a medida que corran las pruebas, revise y anote el consumo de CPU y de memoria en cada caso. ![](img/jvisualvm.png)
 
+1 thread
+![img](/img/punto%203,%201%20thread%20log.png)
+![img](/img/punto%203,%201%20thread.png)
+8 threads
+![img](/img/punto%203,%208%20thread%20log.png)
+![img](/img/punto%203,%208%20thread.png)
+16 threads
+![img](/img/punto%203,%2016%20thread%20log.png)
+![img](/img/punto%203,%2016%20thread.png)
+50 threads
+![img](/img/punto%203,%2050%20thread%20log.png)
+![img](/img/punto%203,%2050%20thread.png)
+100 threads
+![img](/img/punto%203,%20100%20thread%20log.png)
+![img](/img/punto%203,%20100%20thread.png)
+
+
 Con lo anterior, y con los tiempos de ejecución dados, haga una gráfica de tiempo de solución vs. número de hilos. Analice y plantee hipótesis con su compañero para las siguientes preguntas (puede tener en cuenta lo reportado por jVisualVM):
 
 **Parte IV - Ejercicio Black List Search**
@@ -114,7 +133,9 @@ donde _S(n)_ es el mejoramiento teórico del desempeño, _P_ la fracción parale
 
 2. Cómo se comporta la solución usando tantos hilos de procesamiento como núcleos comparado con el resultado de usar el doble de éste?.
 
+Respuesta: El tiempo se reduce en un %50.781
 3. De acuerdo con lo anterior, si para este problema en lugar de 100 hilos en una sola CPU se pudiera usar 1 hilo en cada una de 100 máquinas hipotéticas, la ley de Amdahls se aplicaría mejor?. Si en lugar de esto se usaran c hilos en 100/c máquinas distribuidas (siendo c es el número de núcleos de dichas máquinas), se mejoraría?. Explique su respuesta.
+
 
 
 
