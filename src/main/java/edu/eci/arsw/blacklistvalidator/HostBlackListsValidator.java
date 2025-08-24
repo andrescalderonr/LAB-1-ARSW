@@ -34,23 +34,23 @@ public class HostBlackListsValidator {
     public List<Integer> checkHost(String ipaddress, int n){
         HostBlacklistsDataSourceFacade skds=HostBlacklistsDataSourceFacade.getInstance();
         int listAmount = skds.getRegisteredServersCount();
-        List<int[]> resultado = new ArrayList<>();
+        List<int[]> result = new ArrayList<>();
 
-        int cociente = listAmount / n;
-        int resto = listAmount % n;
+        int cocient = listAmount / n;
+        int residual = listAmount % n;
 
-        int inicio = 0;
+        int start = 0;
 
         for (int i = 0; i < n; i++) {
-            int tamaño = cociente + (i < resto ? 1 : 0); // algunos rangos más grandes
-            int fin = inicio + tamaño;
-            resultado.add(new int[]{inicio, fin});
-            inicio = fin;
+            int size = cocient + (i < residual ? 1 : 0);
+            int end = start + size;
+            result.add(new int[]{start, end});
+            start = end;
         }
 
         LinkedList<HostBlackListsValidatorThread> threadList = new LinkedList<>();
         for (int i = 0; i < n;i++){
-            HostBlackListsValidatorThread thread = new HostBlackListsValidatorThread(resultado.get(i)[0],resultado.get(i)[1],ipaddress);
+            HostBlackListsValidatorThread thread = new HostBlackListsValidatorThread(result.get(i)[0],result.get(i)[1],ipaddress);
             threadList.add(thread);
             thread.start();
         }
