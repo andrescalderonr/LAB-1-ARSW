@@ -129,13 +129,27 @@ Con lo anterior, y con los tiempos de ejecución dados, haga una gráfica de tie
 
 donde _S(n)_ es el mejoramiento teórico del desempeño, _P_ la fracción paralelizable del algoritmo, y _n_ el número de hilos, a mayor _n_, mayor debería ser dicha mejora. Por qué el mejor desempeño no se logra con los 500 hilos?, cómo se compara este desempeño cuando se usan 200?. 
 
-    
+Respuesta: En cuanto a la velocidad de ejecucion los 500 hilos ejecuta mas rapido que los 200 threads como se vera en las 2 imagenes:
+
+200:
+
+![image](img/200threads.png)
+
+500:
+
+![image](img/500threads.png)
+
+La cosa del porque es mejor usar 200 hilos que 500 es porque a medida de que se van creando mas hilos, estos van a consumir mas recursos del coputador haciendo que la CPU realize mas trabajo al momento de poner a funcionar cada thread,
+consume mas memoria y reduce la eficiencia del programa
 
 2. Cómo se comporta la solución usando tantos hilos de procesamiento como núcleos comparado con el resultado de usar el doble de éste?.
 
 Respuesta: El tiempo se reduce en un %50.781
+
 3. De acuerdo con lo anterior, si para este problema en lugar de 100 hilos en una sola CPU se pudiera usar 1 hilo en cada una de 100 máquinas hipotéticas, la ley de Amdahls se aplicaría mejor?. Si en lugar de esto se usaran c hilos en 100/c máquinas distribuidas (siendo c es el número de núcleos de dichas máquinas), se mejoraría?. Explique su respuesta.
 
+Cuando usamos 1 hilo en 100 maquinas, esto cumple con la Ley de Amdahl debido que al haber solo un hilo, el rendimiento es bueno debido que solo va haber un hilo trabajando y no varios trabajndo en simultaneo, Su problema esta en cuando se hace la practica hay un problema y es la comunicación y transferencia de datos entre maquinas haciendo que en caso de que uno solo falle, pueda afectar todo el proyecto, sincornizarlos es mas complejo y al ser 1 hilo por maquina, al tratar de cambiar informacion es mas lento pasarla de maquina a maquina que tenerla toda en una sola maquina.
 
+En cuanto a los c hilos en 100/c maquinas dependeria de la cantidad de hilos que vamos usando, si usamos pocos hilos va a suceder una situación similar que lo de 1 hilo en 100 maquinas, puede que su rendimiento mejore un poco, pero sigue siendo las mismas ventajas y deventejas. Ahora usando muchos threads, reduce la cantidad de maquinas haciendo que cueste mas recursos ejecutar esos threads, ya cuando estamos usando un balance entre threads y maquinas requiere una cantidad considerable de recursos y una mayor facilidad al compartir información entre diferentes threads de diferentes maquinas.
 
 
